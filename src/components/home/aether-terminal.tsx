@@ -27,7 +27,8 @@ export function AetherTerminal() {
   useEffect(() => {
     const handleOpenTerminal = () => setIsVisible(true);
     window.addEventListener("open-terminal", handleOpenTerminal);
-    return () => window.removeEventListener("open-terminal", handleOpenTerminal);
+    return () =>
+      window.removeEventListener("open-terminal", handleOpenTerminal);
   }, []);
 
   const [isMinimized, setIsMinimized] = useState(false);
@@ -63,7 +64,9 @@ export function AetherTerminal() {
     setInput("");
   };
 
-  if (!isVisible) return null;
+  if (!isVisible) {
+    return null;
+  }
 
   return (
     <motion.div
@@ -85,7 +88,8 @@ export function AetherTerminal() {
         </div>
         <div className="flex gap-1.5">
           <button
-            className="h-2 w-2 rounded-full bg-silver-neon/50 hover:bg-silver-neon transition-colors"
+            type="button"
+            className="h-2 w-2 rounded-full bg-silver-neon/50 transition-colors hover:bg-silver-neon"
             onClick={(e) => {
               e.stopPropagation();
               setIsMinimized(!isMinimized);
@@ -93,7 +97,8 @@ export function AetherTerminal() {
             title="Minimize"
           />
           <button
-            className="h-2 w-2 rounded-full bg-silver-pink/50 hover:bg-silver-pink transition-colors"
+            type="button"
+            className="h-2 w-2 rounded-full bg-silver-pink/50 transition-colors hover:bg-silver-pink"
             onClick={(e) => {
               e.stopPropagation();
               setIsVisible(false);
