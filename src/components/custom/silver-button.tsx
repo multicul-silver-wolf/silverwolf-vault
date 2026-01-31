@@ -1,7 +1,8 @@
-import { Button, type ButtonProps } from "@/components/ui/button";
+import type React from "react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-interface SilverButtonProps extends ButtonProps {
+interface SilverButtonProps extends React.ComponentProps<typeof Button> {
   /**
    * If true, adds the hacker neon animation effect
    */
