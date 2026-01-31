@@ -1,10 +1,10 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronRight, Terminal as TerminalIcon } from "lucide-react";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 const COMMANDS = {
   help: "Available commands: help, scan, clear, about, version, whoami",
@@ -32,7 +32,7 @@ export function AetherTerminal() {
       }
     };
     requestAnimationFrame(scroll);
-  }, [history]);
+  }, []);
 
   const handleCommand = (e: React.FormEvent) => {
     e.preventDefault();

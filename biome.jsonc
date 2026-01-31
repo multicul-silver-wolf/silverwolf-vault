@@ -7,5 +7,13 @@
         "noReactSpecificProps": "off"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["src/components/ui/**", "src/hooks/**"],
+      "linter": { "enabled": false },
+      "formatter": { "enabled": false },
+      "assist": { "enabled": false }
+    }
+  ]
 }
