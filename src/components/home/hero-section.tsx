@@ -11,6 +11,7 @@ import {
   Zap,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { SilverButton } from "@/components/custom/silver-button";
 import { cn } from "@/lib/utils";
 
 const STATS = [
@@ -70,15 +71,9 @@ export function HeroSection() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <button
-                className="group relative overflow-hidden rounded-md bg-silver-blue px-8 py-4 font-bold text-white transition-all hover:bg-silver-blue/80"
-                type="button"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  START MISSION <Zap fill="currentColor" size={18} />
-                </span>
-                <div className="absolute inset-0 translate-y-full bg-silver-neon transition-transform group-hover:translate-y-0" />
-              </button>
+              <SilverButton className="px-8 py-4" size="lg">
+                START MISSION <Zap fill="currentColor" size={18} />
+              </SilverButton>
 
               <div className="flex items-center gap-6 rounded-md border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-sm">
                 <a
