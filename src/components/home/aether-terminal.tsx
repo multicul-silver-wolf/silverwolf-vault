@@ -21,6 +21,15 @@ export function AetherTerminal() {
     "Welcome to Aether_OS v1.0.4",
     "Type 'help' for available commands.",
   ]);
+  const [isVisible, setIsVisible] = useState(true);
+
+  // External trigger for terminal
+  useEffect(() => {
+    const handleOpenTerminal = () => setIsVisible(true);
+    window.addEventListener("open-terminal", handleOpenTerminal);
+    return () => window.removeEventListener("open-terminal", handleOpenTerminal);
+  }, []);
+
   const [isMinimized, setIsMinimized] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -54,6 +63,8 @@ export function AetherTerminal() {
     setInput("");
   };
 
+  if (!isVisible) return null;
+
   return (
     <motion.div
       animate={{ opacity: 1, y: 0 }}
@@ -73,8 +84,22 @@ export function AetherTerminal() {
           <span className="uppercase tracking-widest">Aether_Terminal</span>
         </div>
         <div className="flex gap-1.5">
-          <div className="h-2 w-2 rounded-full bg-silver-pink/50" />
-          <div className="h-2 w-2 rounded-full bg-silver-neon/50" />
+          <button
+            className="h-2 w-2 rounded-full bg-silver-neon/50 hover:bg-silver-neon transition-colors"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsMinimized(!isMinimized);
+            }}
+            title="Minimize"
+          />
+          <button
+            className="h-2 w-2 rounded-full bg-silver-pink/50 hover:bg-silver-pink transition-colors"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsVisible(false);
+            }}
+            title="Close"
+          />
         </div>
       </button>
 

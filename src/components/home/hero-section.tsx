@@ -71,7 +71,11 @@ export function HeroSection() {
             </p>
 
             <div className="mt-10 flex flex-wrap items-stretch gap-4">
-              <SilverButton>
+              <SilverButton
+                onClick={() => {
+                  window.dispatchEvent(new CustomEvent("open-terminal"));
+                }}
+              >
                 START MISSION <Zap fill="currentColor" size={18} />
               </SilverButton>
 
