@@ -1,3 +1,4 @@
+import { AetherTerminal } from "@/components/home/aether-terminal";
 import { HeroSection } from "@/components/home/hero-section";
 
 export default function Home() {
@@ -33,6 +34,9 @@ export default function Home() {
       </nav>
 
       <HeroSection />
+
+      {/* Interactive Layer */}
+      <AetherTerminal />
 
       {/* Footer Text */}
       <footer className="fixed bottom-0 z-50 flex w-full justify-end p-8">
