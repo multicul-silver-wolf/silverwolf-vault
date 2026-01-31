@@ -18,16 +18,21 @@ export const SilverButton = ({
   return (
     <Button
       className={cn(
-        "group relative overflow-hidden font-bold transition-all",
+        "group relative overflow-hidden font-bold transition-all uppercase tracking-wider",
+        "h-12 px-8 text-base rounded-none border-2 border-silver-blue", // Custom size & shape override
         neon && [
-          "bg-silver-blue text-white hover:bg-silver-blue/80",
-          "after:absolute after:inset-0 after:translate-y-full after:bg-silver-neon after:transition-transform after:duration-300 hover:text-silver-dark hover:after:translate-y-0",
+          "bg-silver-dark text-silver-neon hover:bg-silver-blue/20",
+          "after:absolute after:inset-0 after:translate-x-[-100%] after:bg-silver-neon/10 after:transition-transform after:duration-300 hover:after:translate-x-0",
+          "before:content-[''] before:absolute before:top-0 before:left-0 before:w-2 before:h-2 before:border-t-2 before:border-l-2 before:border-silver-neon",
+          "after:content-[''] after:absolute after:bottom-0 after:right-0 after:w-2 after:h-2 after:border-b-2 after:border-r-2 after:border-silver-neon",
         ],
         className
       )}
       {...props}
     >
-      <span className="relative z-10 flex items-center gap-2">{children}</span>
+      <span className="relative z-10 flex items-center justify-center gap-3">
+        {children}
+      </span>
     </Button>
   );
 };

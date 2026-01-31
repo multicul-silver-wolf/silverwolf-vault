@@ -70,12 +70,12 @@ export function HeroSection() {
               editing in progress...
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-4">
-              <SilverButton className="px-8 py-4" size="lg">
+            <div className="mt-10 flex flex-wrap items-stretch gap-4">
+              <SilverButton>
                 START MISSION <Zap fill="currentColor" size={18} />
               </SilverButton>
 
-              <div className="flex items-center gap-6 rounded-md border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-sm">
+              <div className="flex items-center gap-6 border-2 border-white/10 bg-white/5 px-6 py-0 backdrop-blur-sm">
                 <a
                   className="text-foreground/50 transition-colors hover:text-silver-neon"
                   href="#github"
