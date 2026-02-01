@@ -79,10 +79,22 @@ export function AetherTerminal() {
     >
       <button
         className="flex w-full cursor-pointer items-center justify-between bg-silver-blue/10 px-4 py-2 transition-colors hover:bg-silver-blue/20"
-        onClick={() => setIsMinimized(!isMinimized)}
+        onClick={() => {
+          if (isMinimized) {
+            setIsMinimized(false);
+          }
+        }}
         type="button"
       >
-        <div className="flex items-center gap-2 font-bold font-mono text-[10px] text-silver-neon">
+        <div
+          className="flex flex-1 items-center gap-2 font-bold font-mono text-[10px] text-silver-neon"
+          onClick={(e) => {
+            if (!isMinimized) {
+              e.stopPropagation();
+              setIsMinimized(true);
+            }
+          }}
+        >
           <TerminalIcon size={12} />
           <span className="uppercase tracking-widest">Aether_Terminal</span>
         </div>
